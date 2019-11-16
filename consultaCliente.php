@@ -29,6 +29,10 @@
     <title>Acesso</title>
 </head>
 
+<script>
+
+</script>
+
 <style>
   .buto{
   margin-left: 3%;
@@ -62,6 +66,16 @@
           font-family: 'Roboto';
           font-weight: 200;
         }
+  .btnPesquisar{
+    padding: 15px;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    background-color: #7f2194;
+    font-family: 'Roboto';
+    font-size: 16px;
+    margin-left: 3%;
+  }
 </style>
 
 <body>
@@ -107,11 +121,7 @@
 
         <section class="twitter">
           <div class="containerDois">
-              <h1 class="titulo">Consulta de Clientes</h1>
-              <div class="col-3">
-                    <input class="effect-1" type="text" placeholder="Pesquisar nome do cliente" id="user" name="nome" required>
-                    <span class="focus-border"></span>
-                </div>
+              <h1 class="titulo">Consulta de Clientes</h1>              
               <?php
               include_once('conexao.php');
             try

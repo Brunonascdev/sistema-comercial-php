@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+  date_default_timezone_set('America/Sao_Paulo');
   include_once('conexao.php');
 
   if(isset($_SESSION['usuario']))
@@ -24,6 +25,17 @@ $cargo = $_POST['cargo'];
 $ende = $_POST['endereco'];
 $cel = $_POST['celular'];
 $email = $_POST['mail'];
+$dir = "img/funcionarios/"; // diretorio para as imagens
+$foto = $_FILES['imgFuncionario'];
+
+//upload da foto
+$ext = strtolower(substr($foto['name'],-4)); //Pegando extensão do arquivo 
+                  
+$novo_nome = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo 
+
+move_uploaded_file($foto['tmp_name'], $dir.$novo_nome); //Fazer upload do arquivo 
+
+$caminhoIMG = $dir.$novo_nome;
 
 include_once('conexao.php');
 	try 
@@ -36,6 +48,7 @@ include_once('conexao.php');
                            ds_cargo = :cargo,
 													 cep_funcionario = :cep,
 													 cel_funcionario = :cel,
+                           img_funcionario = :caminhoIMG,
 													 em_funcionario = :email
 								WHERE cd_funcionario = :id');
 		
@@ -46,7 +59,8 @@ include_once('conexao.php');
                ':ende'=> $ende,
                ':cargo' => $cargo,
 							 ':cep' => $cep,
-							 ':cel' => $cel,
+               ':cel' => $cel,
+							 ':caminhoIMG' => $caminhoIMG,
 							 ':email' => $email));
      
 	} 

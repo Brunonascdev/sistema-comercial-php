@@ -115,10 +115,6 @@ $(document).on("click", "#btnEnviar", function(){
         <section class="twitter">
           <div class="containerDois">
               <h1 class="titulo">Consulta de Usuários</h1>
-              <div class="col-3">
-                    <input class="effect-1" type="text" placeholder="Pesquisar nome do usuário" id="user" name="nome" required>
-                    <span class="focus-border"></span>
-                </div>
               <?php
               echo "<style>
               .dados{

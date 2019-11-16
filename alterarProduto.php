@@ -111,7 +111,7 @@ function vai(){
         <section class="twitter">
           <div class="containerDois">
               <h1 class="titulo">Alterar Produto</h1>
-              <form action="confirmaAlterarProduto.php?codigo=<?php echo $row['cd_produto'];?>" method="POST">
+              <form action="confirmaAlterarProduto.php?codigo=<?php echo $row['cd_produto'];?>" method="POST" enctype="multipart/form-data">
               <div class="col-3">
                     <input class="effect-1" type="text" placeholder="Código do Produto" id="user" name="codigo" required value="<?php echo $row['cd_produto'];?>" disabled>
                     <span class="focus-border"></span>
@@ -130,6 +130,14 @@ function vai(){
                 </div>
                 <div class="col-3">
                     <input class="effect-1" type="number" placeholder="Preço de Venda" id="pv" name="preçoVenda" required value="<?php echo $row['pv_produto'];?>">
+                    <span class="focus-border"></span>
+                </div>
+                <div class="col-3">
+                    <img src="<?php echo $row['img_produto'] ?>" width='120vh' style='border: 5px solid #6e214f'>
+                    <span class="focus-border"></span>
+                </div>
+                <div class="col-3">
+                    <input class="effect-1" type="file" name="imgProduto">
                     <span class="focus-border"></span>
                 </div>
                 <button class="btns" type="submit" id="btnEnviar"> Atualizar</button>

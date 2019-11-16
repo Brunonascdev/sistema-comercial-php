@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+  date_default_timezone_set('America/Sao_Paulo');
   include_once('conexao.php');
 
   if(isset($_SESSION['usuario']))
@@ -20,6 +21,17 @@ $nome = $_POST['nome'];
 $quantidade = $_POST['quantidade'];
 $pc = $_POST['preçoCompra'];
 $pv = $_POST['preçoVenda'];
+$dir = "img/produtos/"; // diretorio para as imagens
+$foto = $_FILES['imgProduto'];
+
+//upload da foto
+$ext = strtolower(substr($foto['name'],-4)); //Pegando extensão do arquivo 
+                  
+$novo_nome = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo 
+
+move_uploaded_file($foto['tmp_name'], $dir.$novo_nome); //Fazer upload do arquivo 
+
+$caminhoIMG = $dir.$novo_nome;
 
 include_once('conexao.php');
 	try 
@@ -28,13 +40,15 @@ include_once('conexao.php');
 		$stmt = $con->prepare('UPDATE tb_produto SET nm_produto = :nome,
 													 pc_produto = :pc,
 													 pv_produto = :pv,
-                           qnt_produto = :qnt
+                           qnt_produto = :qnt,
+                           img_produto = :caminhoIMG
 								WHERE cd_produto = :id');
 		
     $stmt->execute(array(':id' => $cod, 
                ':nome' => $nome,
 							 ':pc' => $pc,
-							 ':pv' => $pv,
+               ':pv' => $pv,
+               ':caminhoIMG' => $caminhoIMG,
 							 ':qnt' => $quantidade));
      
 	} 

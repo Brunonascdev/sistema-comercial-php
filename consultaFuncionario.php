@@ -114,10 +114,6 @@ $(document).on("click", "#btnEnviar", function(){
         <section class="twitter">
           <div class="containerDois">
               <h1 class="titulo">Consulta de Funcionários</h1>
-              <div class="col-3">
-                    <input class="effect-1" type="text" placeholder="Pesquisar nome do Funcionário" id="user" name="nome" required>
-                    <span class="focus-border"></span>
-                </div>
               <?php
               include_once('conexao.php');
             try

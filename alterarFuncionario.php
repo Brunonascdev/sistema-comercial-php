@@ -51,6 +51,10 @@ $(document).on("click", "#btnEnviar", function(){
           font-family: 'Roboto';
           font-weight: 200;
         }
+  form{
+    margin-bottom: 5%;
+    margin-top: -10%;
+  }
 </style>
 
 <body>
@@ -96,8 +100,8 @@ $(document).on("click", "#btnEnviar", function(){
       
         <section class="twitter">
           <div class="containerDois"> 
+              <form action="confirmaAlterarFuncionario.php?codigo=<?php echo $row['cd_funcionario'];?>" method="POST" enctype="multipart/form-data">
               <h1 class="titulo">Alterar Funcionário</h1>
-              <form action="confirmaAlterarFuncionario.php?codigo=<?php echo $row['cd_funcionario'];?>" method="POST">
               <div class="col-3">
                     <input class="effect-1" type="text" placeholder="Código" id="user" name="codigo" disabled value="<?php echo $row['cd_funcionario'];?>"> 
                     <span class="focus-border"></span>
@@ -134,10 +138,20 @@ $(document).on("click", "#btnEnviar", function(){
                     <input class="effect-1" type="email" placeholder="E-Mail" id="user" name="mail" required value="<?php echo $row['em_funcionario'];?>">
                     <span class="focus-border"></span>
                 </div>
+                <div class="col-3">
+                    <img src="<?php echo $row['img_funcionario'] ?>" width='120vh' style='border: 5px solid #6e214f'>
+                    <span class="focus-border"></span>
+                </div>
+                <div class="col-3">
+                    <input class="effect-1" type="file" name="imgFuncionario">
+                    <span class="focus-border"></span>
+                </div>
                 <button class="btns" type="submit" id="btnEnviar"> Atualizar</button>
                 <button class="btns" type="reset"> Resetar Campos</button>
                 <button class="btns" type="reset" onclick="javascript: location.href='consultaFuncionario.php'"> Voltar</button>
-              </form>             
+                
+              </form>  
+                        
           </div>
         </section>
       </main>
