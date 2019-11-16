@@ -1,0 +1,115 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    background: #ad5389;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+*:focus{
+    outline: 0; 
+}
+
+.container{
+    height: 270px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.74);
+    display: flex;
+    margin: 15% auto;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+h1{
+    display: flex;
+    margin: 5 auto;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+}
+
+form{
+    flex-direction: column;
+    display: flex;
+}
+
+#login{
+    width: 50%;
+    
+}
+
+.logo{
+    width: 5vh;
+    display: flex;
+    margin: 5% auto;     
+}
+
+.col-3 {
+    float: left; width: 88.5%; 
+    margin: 10px 3%; 
+    position: relative;
+    } /* necessary to give position: relative to parent. */
+    input {
+    display: flex;
+    margin: 10% auto;
+    font: 15px/24px "Roboto", Arial, sans-serif;
+    color: black; 
+    width: 100%; 
+    box-sizing: border-box; 
+    letter-spacing: 1px;
+    font-size: 1.7vh;
+    }
+    .effect-1 {
+     display: flex;
+     margin: 0 auto;
+     border: 0;
+     padding: 5px 0;
+     background: rgba(0, 0, 0, 0);
+     /* border-radius: 30%; */
+    }
+    .effect-1 ~ .focus-border {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 0;
+     height: 2px; 
+     background: #ad5389;  /* fallback for old browsers */
+     background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     transition: 1s;
+    }
+    .effect-1:focus ~ .focus-border
+     {
+     width: 100%; transition: 1s;
+    
+    }
+    ::placeholder{
+        color: black;
+        opacity: 0.7;
+    }
+
+    .buto{
+        padding: 15px;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 3%;
+        background: #ad5389;  /* fallback for old browsers */
+        border: none;
+        border-radius: 10px;
+        color: white;
+        transition: background 1s;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .buto:hover{
+        background: #3c1053;
+    }
+
+    @media (max-width: 778px){
+        .container{
+            margin: 50% auto !important;
+        }
+    }
